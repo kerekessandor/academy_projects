@@ -1,39 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/10/24 15:39:46 by azaha             #+#    #+#             */
-/*   Updated: 2015/10/24 20:32:25 by azaha            ###   ########.fr       */
+/*   Created: 2015/10/24 20:12:51 by azaha             #+#    #+#             */
+/*   Updated: 2015/10/24 20:24:35 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+int		ft_strcmp(const char *s1, const char *s2)
 {
-	size_t dst_len;
-	size_t src_len;
-	size_t length;
-
-	length = 0;
-	dst_len = 0;
-	src_len = 0;
-	while (dst[dst_len] != '\0')
+	while (*s1 && (*s1 == *s2))
 	{
-		dst_len++;
-		length++;
+		s1++;
+		s2++;
 	}
-	while (src[src_len] != '\0')
-	{
-		dst[dst_len + src_len] = src[src_len];
-		src_len++;
-		length++;
-	}
-	if (size < dst_len)
-		return (size + src_len);
-	else
-		return (length);
+	return (*s1 - *s2);
 }
