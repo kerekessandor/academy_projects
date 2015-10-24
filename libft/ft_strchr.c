@@ -6,18 +6,20 @@
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/24 16:38:58 by azaha             #+#    #+#             */
-/*   Updated: 2015/10/24 16:50:35 by azaha            ###   ########.fr       */
+/*   Updated: 2015/10/24 17:33:35 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strchr(const char *s, int c)
 {
 	int i;
-	//char *ret;
 
 	i = 0;
-	while (s[i] != (char)c)
+	while (s[i] != '\0')
+	{
+		if (s[i] == c)
+			return ((char *)(s + i));
 		i++;
-	//ret = &s[i];
-	return (*(s + i));
+	}
+	return (0);
 }
