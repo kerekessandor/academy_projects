@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/10/22 11:57:58 by azaha             #+#    #+#             */
-/*   Updated: 2015/10/25 17:21:52 by azaha            ###   ########.fr       */
+/*   Created: 2015/10/25 12:33:00 by azaha             #+#    #+#             */
+/*   Updated: 2015/10/25 13:49:44 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <ctype.h>
-#include <stdio.h>
-#include <string.h>
 
-int		main(void)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char a[200] = "nimic";
-	//char b[200];
-	//char c[200];
-	//char d[200];
-	
-	printf("%zu\n", ft_strlen(a));
-	//printf("%d\n", ft_memcmp(a, c, 1));
-	
-	char *ptr;
-	ptr = NULL;
-	ptr = ft_memalloc(ft_strlen(a));
-	printf("%s\n", ptr);
-	ft_memdel(&ptr);
-	return (0);
+	size_t i;
+
+	i = 0;
+	while (i < len)
+	{
+		*(unsigned char*)(dst + i) = *(unsigned char*)(src + i);
+		i++;
+	}
+	return (dst);
 }

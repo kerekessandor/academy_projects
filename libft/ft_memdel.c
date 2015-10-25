@@ -1,34 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/10/22 11:57:58 by azaha             #+#    #+#             */
-/*   Updated: 2015/10/25 17:21:52 by azaha            ###   ########.fr       */
+/*   Created: 2015/10/25 17:06:58 by azaha             #+#    #+#             */
+/*   Updated: 2015/10/25 17:27:24 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <ctype.h>
-#include <stdio.h>
-#include <string.h>
 
-int		main(void)
+void	ft_memdel(void **ap)
 {
-	char a[200] = "nimic";
-	//char b[200];
-	//char c[200];
-	//char d[200];
-	
-	printf("%zu\n", ft_strlen(a));
-	//printf("%d\n", ft_memcmp(a, c, 1));
-	
-	char *ptr;
-	ptr = NULL;
-	ptr = ft_memalloc(ft_strlen(a));
-	printf("%s\n", ptr);
-	ft_memdel(&ptr);
-	return (0);
+	size_t i;
+
+	i = ft_strlen(*ap);
+	free(*(char**)ap);
+	ft_bzero(*ap, i);
 }
