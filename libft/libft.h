@@ -6,7 +6,11 @@
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/22 09:26:01 by azaha             #+#    #+#             */
+<<<<<<< HEAD
+/*   Updated: 2015/10/26 15:46:01 by azaha            ###   ########.fr       */
+=======
 /*   Updated: 2015/10/25 17:14:07 by azaha            ###   ########.fr       */
+>>>>>>> edb4c5ddc614812effcc6673dab657f12650fdb7
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +50,9 @@ void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_memalloc(size_t size);
 void	ft_memdel(void **ap);
+<<<<<<< HEAD
+char	*ft_strnew(size_t size);
+=======
+>>>>>>> edb4c5ddc614812effcc6673dab657f12650fdb7
 
 #endif

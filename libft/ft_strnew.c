@@ -1,31 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdel.c                                        :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/10/25 17:06:58 by azaha             #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2015/10/26 15:28:25 by azaha            ###   ########.fr       */
-=======
-/*   Updated: 2015/10/25 17:27:24 by azaha            ###   ########.fr       */
->>>>>>> edb4c5ddc614812effcc6673dab657f12650fdb7
+/*   Created: 2015/10/26 15:46:05 by azaha             #+#    #+#             */
+/*   Updated: 2015/10/26 16:00:50 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_memdel(void **ap)
+char	*ft_strnew(size_t size)
 {
-<<<<<<< HEAD
-	free(*ap);
-	*ap = NULL;
-=======
-	size_t i;
-
-	i = ft_strlen(*ap);
-	free(*(char**)ap);
-	ft_bzero(*ap, i);
->>>>>>> edb4c5ddc614812effcc6673dab657f12650fdb7
+	
 }
