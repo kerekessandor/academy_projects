@@ -5,12 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/10/22 09:26:01 by azaha             #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2015/10/26 15:46:01 by azaha            ###   ########.fr       */
-=======
-/*   Updated: 2015/10/25 17:14:07 by azaha            ###   ########.fr       */
->>>>>>> edb4c5ddc614812effcc6673dab657f12650fdb7
+/*   Created: 2015/10/27 15:14:05 by azaha             #+#    #+#             */
+/*   Updated: 2015/10/27 15:17:05 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +46,14 @@ void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_memalloc(size_t size);
 void	ft_memdel(void **ap);
-<<<<<<< HEAD
 char	*ft_strnew(size_t size);
-=======
->>>>>>> edb4c5ddc614812effcc6673dab657f12650fdb7
+void	ft_strdel(char **as);
+int		ft_strequ(char const *s1, char const *s2);
+int		ft_strnequ(char const *s1, char const *s2, size_t n);
+void	ft_strclr(char *s);
+char	*ft_strsub(char const *s, unsigned int start, size_t len);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strtrim(char const *s);
+char	**ft_strsplit(char const *s, char c);
 
 #endif

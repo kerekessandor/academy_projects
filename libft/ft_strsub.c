@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/10/24 20:12:51 by azaha             #+#    #+#             */
-/*   Updated: 2015/10/27 09:42:34 by azaha            ###   ########.fr       */
+/*   Created: 2015/10/27 11:41:31 by azaha             #+#    #+#             */
+/*   Updated: 2015/10/27 15:11:31 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strcmp(const char *s1, const char *s2)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	while (*s1 && (*s1 == *s2))
+	char	*rez;
+	size_t	index;
+
+	index = 0;
+	if (start < ft_strlen(s) && len <= (ft_strlen(s) - start))
 	{
-		s1++;
-		s2++;
+		rez = (char*)malloc(sizeof(char) * (len + 1));
+		while (index < len)
+		{
+			*(rez + index) = *(s + start + index);
+			index++;
+		}
 	}
-	return (*s1 - *s2);
+	else
+		rez = NULL;
+	return (rez);
 }

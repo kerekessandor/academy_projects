@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/10/24 20:12:51 by azaha             #+#    #+#             */
-/*   Updated: 2015/10/27 09:42:34 by azaha            ###   ########.fr       */
+/*   Created: 2015/10/27 14:05:59 by azaha             #+#    #+#             */
+/*   Updated: 2015/10/27 15:13:36 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-int		ft_strcmp(const char *s1, const char *s2)
+char		*ft_strtrim(char const *s)
 {
-	while (*s1 && (*s1 == *s2))
-	{
-		s1++;
-		s2++;
-	}
-	return (*s1 - *s2);
+	char	*ptr;
+	char	*aux;
+	size_t	i;
+
+	ptr = (char*)s;
+	while (*ptr == ' ' || *ptr == '\n' || *ptr == '\t')
+		ptr++;
+	aux = ptr;
+	i = ft_strlen(ptr) - 1;
+	while (*(aux + i) == ' ' || *(aux + i) == '\n' || *(aux + i) == '\t')
+		i--;
+	ptr = (char*)malloc(sizeof(char) * (i + 1));
+	ptr = aux;
+	*(ptr + i + 1) = '\0';
+	return (ptr);
 }

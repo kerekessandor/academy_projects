@@ -6,11 +6,16 @@
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/26 15:46:05 by azaha             #+#    #+#             */
-/*   Updated: 2015/10/26 16:00:50 by azaha            ###   ########.fr       */
+/*   Updated: 2015/10/27 09:54:22 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 char	*ft_strnew(size_t size)
 {
-	
+	char *ptr;
+
+	ptr = ft_memalloc(size + 1);
+	return (ptr);
 }

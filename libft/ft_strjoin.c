@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/10/24 20:12:51 by azaha             #+#    #+#             */
-/*   Updated: 2015/10/27 09:42:34 by azaha            ###   ########.fr       */
+/*   Created: 2015/10/27 12:05:34 by azaha             #+#    #+#             */
+/*   Updated: 2015/10/27 15:13:12 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strcmp(const char *s1, const char *s2)
+char		*ft_strjoin(char const *s1, char const *s2)
 {
-	while (*s1 && (*s1 == *s2))
-	{
-		s1++;
-		s2++;
-	}
-	return (*s1 - *s2);
+	char	*rez;
+	size_t	size;
+
+	size = 0;
+	size = ft_strlen(s1) + ft_strlen(s2);
+	if (!(rez = (char*)malloc(sizeof(char) * (size + 1))))
+		rez = NULL;
+	else
+		rez = ft_strcat((char*)s1, (char*)s2);
+	return (rez);
 }
