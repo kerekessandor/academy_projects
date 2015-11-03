@@ -1,67 +1,62 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/10/26 16:44:36 by azaha             #+#    #+#             */
-/*   Updated: 2015/10/26 18:18:44 by azaha            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
+#include <stdlib.h>
 
-
-typedef	struct	s_struct
+int		main()
 {
-	char	buff[255];
-	char	first_name[20];
-    char	last_name[20];
-	char	e_mail[20]; 
-	char	location[20];
-	char	grade[5];
-}				student;
-
-int		main(void)
-{
-	FILE	 *fp;
-	int 	index;
-	int		word;
-	int		letter;
+	FILE *fp;
+	char buff[255];
+	char a[20],b[20],c[20],d[5],e[10];
+	int i=0,j=0,k=0;
 
 	fp = fopen("students.csv", "r");
-
-	while (fscanf(fp, "%s", buff) > 0)
-	{
-		index = 0;
-		word = 0;
-		letter = 0;
-		while (buff[index] != 0)
+		while(fscanf(fp, "%s", buff) > 0)
 		{
-			if (buff[index] == ';')
+			j=0;k=0;i=0;
+			while(buff[i] != '\0')
 			{
-				word++;
-				letter = 0;
-			}
-			else
-			{
-				if (word == 0)
+				if(buff[i] == ';')
 				{
-					first_name[letter] = buff[index];
-					if (buff[index + 1] == ';')
-						first_name[letter + 1] = '\0';
+					j++;
+					k = 0;
 				}
-				letter++;
+				else{
+					if (j == 0)
+					{
+						a[k] = buff[i];
+						if (buff[i + 1] == ';')
+							a[k + 1] = '\0';
+					}
+					if (j == 1)
+					{
+						b[k] = buff[i];
+						if (buff[i + 1]== ';')
+							b[k + 1]='\0';
+					}
+					if (j == 2)
+					{
+						c[k] = buff[i];
+						if (buff[i + 1]== ';')
+							c[k + 1]='\0';
+					}
+					if (j == 3)
+					{
+						d[k] = buff[i];
+						if (buff[i + 1]== ';')
+							d[k + 1]='\0';
+					}
+					if (j == 4)
+					{
+						e[k] = buff[i];
+						if (buff[i + 1]== 0)
+							e[k + 1]='\0';
+					}
+					k++;
+				}
+				i++;
 			}
-			index++;
-		}
-		if ((strcmp(location, "Cluj") == 0) && atoi(grade) > 8.00)
-		{
-			printf("%s %s\n", first_name, last_name);
-		}
+		if(strcmp(e,"Cluj") == 0 && atoi(d) > 8.00)
+				printf("%s %s\n",a,b);
 	}
 	return (0);
 }
