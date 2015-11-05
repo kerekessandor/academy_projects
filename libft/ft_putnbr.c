@@ -1,22 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strclr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/10/27 11:19:43 by azaha             #+#    #+#             */
-/*   Updated: 2015/11/05 14:15:29 by azaha            ###   ########.fr       */
+/*   Created: 2015/10/29 09:03:05 by azaha             #+#    #+#             */
+/*   Updated: 2015/10/29 09:58:44 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_strclr(char *s)
+void	ft_putnbr(int n)
 {
-	while (*s)
+	int i;
+	long nbr;
+	char v[11];
+
+	i = 0;
+	nbr = n;
+	if (nbr == 0)
+		ft_putchar('0');
+	if (nbr < 0)
 	{
-		*s = '\0';
-		s++;
+		ft_putchar('-');
+		nbr = -nbr;
+	}
+	while(nbr != 0)
+	{
+		v[i] = nbr % 10 + '0';
+		nbr = nbr / 10;
+		i++;
+	}
+	i--;
+	while (i >= 0)
+	{
+		ft_putchar(v[i]);
+		i--;
 	}
 }

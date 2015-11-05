@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strclr.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/10/27 11:19:43 by azaha             #+#    #+#             */
-/*   Updated: 2015/11/05 14:15:29 by azaha            ###   ########.fr       */
+/*   Created: 2015/11/05 13:01:52 by azaha             #+#    #+#             */
+/*   Updated: 2015/11/05 13:45:56 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_strclr(char *s)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	while (*s)
+	unsigned int index;
+
+	index = 0;
+	while (*(s + index) != '\0')
 	{
-		*s = '\0';
-		s++;
+		f(index, s + index);
+		index++;
 	}
 }

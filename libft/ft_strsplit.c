@@ -5,47 +5,70 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/10/27 15:17:10 by azaha             #+#    #+#             */
-/*   Updated: 2015/10/27 17:29:34 by azaha            ###   ########.fr       */
+/*   Created: 2015/10/29 10:43:47 by azaha             #+#    #+#             */
+/*   Updated: 2015/11/04 19:51:02 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
+
+static	int	ft_count_words(char const*s, char c)
+{
+	int in_word;
+	size_t nr_of_words;
+
+	in_word = 0;
+	nr_of_words = 0;
+	while (*s)
+	{
+		if (*s == c && in_word == 1)
+			in_word = 0;
+		if(*s != c && in_word == 0)
+		{
+			in_word = 1;
+			nr_of_words++;
+		}
+		s++;
+	}
+	return (nr_of_words);
+}
+
+static	int	ft_word_length(const char *s, char c, int index)
+{
+	int length;
+
+	length = 0;
+	while (s[index] && s[index] != c)
+	{
+		length++;
+		index++;
+	}
+	return (length);
+}
 
 char	**ft_strsplit(char const *s, char c)
 {
-	char	**matrix;
-	size_t	nr_of_lines;
-	size_t	word_length;
-	size_t	index;
+	char **matrix;
+	size_t nr_of_words;
+	size_t index;
+	size_t col;
 
+	col = 0;
 	index = 0;
-	word_length = 1;
-	nr_of_lines = 0;
-	while (*s != '\0')
-	{
-		if (*s == c)
-			s++;
-		else
+	nr_of_words = ft_count_words(s, c);
+	if(!(matrix = (char**)malloc(sizeof(char*) * (nr_of_words + 1))))
+	matrix = NULL;
+	else
+		while (nr_of_words > 0)
 		{
-			while (*s != c)
-			{
-				word_length++;
-				s++;
-			}
-			*(matrix + index) = (char**)malloc(sizeof(char) * word_length);
-			while (word_length > 0)
-			{
-				**matrix = *(s - word_length);
-				*matrix++;
-				word_length--;
-			}
-			index++;
+			while (s[index] == c && s[index] != '\0')
+				index++;
+			matrix[col] = ft_strsub(s, index, ft_word_length(s, c, index));
+			col++;
+			index = index + ft_word_length(s, c, index);
+			nr_of_words--;
 		}
-		s++;
-		nr_of_lines++;
-	}
-	matrix = (char*)malloc(sizeof(char) * nr_of_lines);
-	
+	matrix[col] = 0;
 	return (matrix);
 }

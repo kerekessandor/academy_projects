@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strclr.c                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/10/27 11:19:43 by azaha             #+#    #+#             */
-/*   Updated: 2015/11/05 14:15:29 by azaha            ###   ########.fr       */
+/*   Created: 2015/10/29 10:23:36 by azaha             #+#    #+#             */
+/*   Updated: 2015/10/29 10:25:53 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_strclr(char *s)
+void	ft_putendl_fd(char const *s, int fd)
 {
-	while (*s)
-	{
-		*s = '\0';
-		s++;
-	}
+	char *ptr;
+
+	ptr = (char*)s;
+	ft_putstr_fd(ptr, fd);
+	ft_putchar('\n');
 }
