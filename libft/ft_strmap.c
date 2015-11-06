@@ -1,18 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/10/24 10:16:59 by azaha             #+#    #+#             */
-/*   Updated: 2015/11/06 17:19:17 by azaha            ###   ########.fr       */
+/*   Created: 2015/11/06 17:09:40 by azaha             #+#    #+#             */
+/*   Updated: 2015/11/06 17:42:06 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_tolower(int c)
+#include "libft.h"
+
+char	*ft_strmap(char const *s, char (*f)(char))
 {
-	if (c >= 65 && c <= 90)
-		c += 32;
-	return (c);
+	char *map;
+	char *ptr;
+
+	if (!(map = (char*)malloc(sizeof(char) * (ft_strlen(s) + 1))))
+		map = NULL;
+	else
+	{
+		ptr = map;
+		while (*s)
+		{
+			*ptr = f(*s);
+			ptr++;
+			s++;
+		}
+		*ptr = '\0';
+	}
+	return (map);
 }
