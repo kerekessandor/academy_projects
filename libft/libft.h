@@ -5,9 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/10/27 15:14:05 by azaha             #+#    #+#             */
-/*   Updated: 2015/11/06 17:55:58 by azaha            ###   ########.fr       */
-/*   Updated: 2015/10/27 15:17:05 by azaha            ###   ########.fr       */
+/*   Created: 2015/11/06 18:47:41 by azaha             #+#    #+#             */
+/*   Updated: 2015/11/06 19:10:17 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +68,5 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 char	*ft_itoa(int n);
 char	*ft_strmap(char const *s, char (*f)(char));
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
-
+void	ft_putnbr_fd(int n, int fd);
 #endif

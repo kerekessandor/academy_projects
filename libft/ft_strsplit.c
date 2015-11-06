@@ -6,17 +6,17 @@
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/29 10:43:47 by azaha             #+#    #+#             */
-/*   Updated: 2015/11/04 19:51:02 by azaha            ###   ########.fr       */
+/*   Updated: 2015/11/06 19:18:03 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-static	int	ft_count_words(char const*s, char c)
+static	int		ft_count_words(char const *s, char c)
 {
-	int in_word;
-	size_t nr_of_words;
+	int		in_word;
+	size_t	nr_of_words;
 
 	in_word = 0;
 	nr_of_words = 0;
@@ -24,7 +24,7 @@ static	int	ft_count_words(char const*s, char c)
 	{
 		if (*s == c && in_word == 1)
 			in_word = 0;
-		if(*s != c && in_word == 0)
+		if (*s != c && in_word == 0)
 		{
 			in_word = 1;
 			nr_of_words++;
@@ -34,9 +34,9 @@ static	int	ft_count_words(char const*s, char c)
 	return (nr_of_words);
 }
 
-static	int	ft_word_length(const char *s, char c, int index)
+static	int		ft_word_length(const char *s, char c, int index)
 {
-	int length;
+	int		length;
 
 	length = 0;
 	while (s[index] && s[index] != c)
@@ -47,18 +47,18 @@ static	int	ft_word_length(const char *s, char c, int index)
 	return (length);
 }
 
-char	**ft_strsplit(char const *s, char c)
+char			**ft_strsplit(char const *s, char c)
 {
-	char **matrix;
-	size_t nr_of_words;
-	size_t index;
-	size_t col;
+	char	**matrix;
+	size_t	nr_of_words;
+	size_t	index;
+	size_t	col;
 
 	col = 0;
 	index = 0;
 	nr_of_words = ft_count_words(s, c);
-	if(!(matrix = (char**)malloc(sizeof(char*) * (nr_of_words + 1))))
-	matrix = NULL;
+	if (!(matrix = (char**)malloc(sizeof(char*) * (nr_of_words + 1))))
+		matrix = NULL;
 	else
 		while (nr_of_words > 0)
 		{

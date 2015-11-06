@@ -1,37 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/10/22 11:57:58 by azaha             #+#    #+#             */
-/*   Updated: 2015/11/06 18:26:31 by azaha            ###   ########.fr       */
-/*   Updated: 2015/10/27 15:56:16 by azaha            ###   ########.fr       */
-/*   Updated: 2015/10/25 17:21:52 by azaha            ###   ########.fr       */
+/*   Created: 2015/11/06 18:46:42 by azaha             #+#    #+#             */
+/*   Updated: 2015/11/06 19:14:24 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <ctype.h>
-#include <stdio.h>
-#include <string.h>
 
-void	ft_upper(unsigned int index, char *c)
+void	ft_putnbr_fd(int n, int fd)
 {
-	while (*c)
+	int		index;
+	long	aux;
+	char	position[11];
+
+	index = 0;
+	aux = n;
+	if (aux == 0)
+		ft_putchar_fd('0', fd);
+	if (aux < 0)
 	{
-		*c = *c - 32 + index;
-		c++;
+		ft_putchar_fd('-', fd);
+		aux = -aux;
+	}
+	while (aux != 0)
+	{
+		position[index] = aux % 10 + '0';
+		aux = aux / 10;
 		index++;
 	}
-}
-
-int		main()
-{
-	char *s = "nimic";
-	ft_striteri(s, &ft_upper);
-	printf("%s\n",s);
-	
-	return (0);
+	index--;
+	while (index >= 0)
+	{
+		ft_putchar_fd(position[index], fd);
+		index--;
+	}
 }

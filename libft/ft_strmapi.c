@@ -6,7 +6,7 @@
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/06 17:42:20 by azaha             #+#    #+#             */
-/*   Updated: 2015/11/06 18:20:22 by azaha            ###   ########.fr       */
+/*   Updated: 2015/11/06 19:14:47 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	unsigned int index;
-	char *map;
+	unsigned int	index;
+	char			*map;
 
 	index = 0;
 	if (!(map = (char*)malloc(sizeof(map) * (ft_strlen(s) + 1))))

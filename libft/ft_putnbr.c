@@ -6,7 +6,7 @@
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/29 09:03:05 by azaha             #+#    #+#             */
-/*   Updated: 2015/10/29 09:58:44 by azaha            ###   ########.fr       */
+/*   Updated: 2015/11/06 19:13:51 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_putnbr(int n)
 {
-	int i;
-	long nbr;
-	char v[11];
+	int		i;
+	long	nbr;
+	char	v[11];
 
 	i = 0;
 	nbr = n;
@@ -27,7 +27,7 @@ void	ft_putnbr(int n)
 		ft_putchar('-');
 		nbr = -nbr;
 	}
-	while(nbr != 0)
+	while (nbr != 0)
 	{
 		v[i] = nbr % 10 + '0';
 		nbr = nbr / 10;
