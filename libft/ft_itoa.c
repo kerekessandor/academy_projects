@@ -6,11 +6,12 @@
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/05 13:53:08 by azaha             #+#    #+#             */
-/*   Updated: 2015/11/05 15:10:06 by azaha            ###   ########.fr       */
+/*   Updated: 2015/11/08 17:24:02 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 static int		ft_length(int n)
 {
@@ -52,15 +53,18 @@ char			*ft_itoa(int n)
 
 	nb = n;
 	index = 0;
-	rez = (char*)malloc(sizeof(char) * (ft_length(n) + 1));
 	if ((sign = nb) < 0)
 		nb = -nb;
-	while (nb > 0)
-	{
-		rez[index] = nb % 10 + '0';
-		nb = nb / 10;
-		index++;
-	}
+	rez = (char*)malloc(sizeof(char) * (ft_length(nb) + 1));
+	if (nb == 0)
+		rez[index] = '0';
+	else
+		while (nb > 0)
+		{
+			rez[index] = nb % 10 + '0';
+			nb = nb / 10;
+			index++;
+		}
 	if (sign < 0)
 		rez[index] = '-';
 	rez[index + 1] = '\0';

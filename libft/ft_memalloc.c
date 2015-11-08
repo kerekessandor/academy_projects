@@ -6,7 +6,7 @@
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/25 15:53:12 by azaha             #+#    #+#             */
-/*   Updated: 2015/10/25 17:04:59 by azaha            ###   ########.fr       */
+/*   Updated: 2015/11/08 16:35:11 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,10 @@
 
 void	*ft_memalloc(size_t size)
 {
-	size_t *ptr;
+	void	*ptr;
 
-	ptr = NULL;
-	if (size == 0)
-		return (ptr);
-	else
-	{
-		ptr = (size_t*)malloc(sizeof(size_t) * size);
-		ft_bzero(ptr, size);
-	}
+	if (!(ptr = (void*)malloc(sizeof(*ptr) * size)))
+		return (NULL);
+	ptr = ft_memset(ptr, '\0', size);
 	return (ptr);
 }
