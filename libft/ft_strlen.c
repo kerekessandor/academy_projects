@@ -6,7 +6,7 @@
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/24 12:52:46 by azaha             #+#    #+#             */
-/*   Updated: 2015/10/24 13:37:42 by azaha            ###   ########.fr       */
+/*   Updated: 2015/11/08 18:34:15 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 size_t	ft_strlen(const char *s)
 {
-	size_t i;
+	size_t size;
 
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
+	size = 0;
+	while (s[size] != '\0')
+		size++;
+	return (size);
 }

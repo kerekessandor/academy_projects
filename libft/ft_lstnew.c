@@ -6,7 +6,7 @@
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/08 17:49:02 by azaha             #+#    #+#             */
-/*   Updated: 2015/11/08 17:58:35 by azaha            ###   ########.fr       */
+/*   Updated: 2015/11/08 18:34:13 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,4 @@
 t_list	*ft_lstnew(void const *content, size_t content_size)
 {
 	t_list *new;
-
 }
