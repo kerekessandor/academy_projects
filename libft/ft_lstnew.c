@@ -6,7 +6,7 @@
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/08 17:49:02 by azaha             #+#    #+#             */
-/*   Updated: 2015/11/08 18:34:13 by azaha            ###   ########.fr       */
+/*   Updated: 2015/11/09 16:01:35 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 	}
 	return (new_node);
 }
-
+/*
 int		main(void)
 {
 	long unNumar = 5432;
@@ -45,4 +45,4 @@ int		main(void)
 	unNumar = 41234;
 	printf("content value: %lu\n", *((long*)unNod->content));
 	return (0);
-}
+}*/
