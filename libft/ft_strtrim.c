@@ -6,28 +6,40 @@
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/27 14:05:59 by azaha             #+#    #+#             */
-/*   Updated: 2015/11/06 18:52:53 by azaha            ###   ########.fr       */
+/*   Updated: 2015/11/09 20:08:46 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 char		*ft_strtrim(char const *s)
 {
 	char	*ptr;
-	char	*aux;
 	size_t	i;
+	size_t	j;
+	size_t	k;
 
-	ptr = (char*)s;
-	while (*ptr == ' ' || *ptr == '\n' || *ptr == '\t')
-		ptr++;
-	aux = ptr;
-	i = ft_strlen(ptr) - 1;
-	while (*(aux + i) == ' ' || *(aux + i) == '\n' || *(aux + i) == '\t')
-		i--;
-	ptr = (char*)malloc(sizeof(char) * (i + 1));
-	ptr = aux;
-	*(ptr + i + 1) = '\0';
+	if (!s)
+		return (NULL);
+	else
+	{
+		i = 0;
+		k = 0;
+		j = ft_strlen(s) - 1;
+		while (*(s + i) == ' ' || *(s + i) == '\n' || *(s + i) == '\t')
+			i++;
+		if (*(s + i) == '\0')
+			return (ft_strdup(""));
+		while (*(s + j) == ' ' || *(s + j) == '\n' || *(s + j) == '\t')
+			j--;
+		ptr = (char*)malloc(sizeof(*ptr) * (j - i + 1));
+		while (i <= j)
+		{
+			*(ptr + k) = *(s + i);
+			k++;
+			i++;
+		}
+		*(ptr + k) = '\0';
+	}
 	return (ptr);
 }
