@@ -5,18 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/09 16:10:17 by azaha             #+#    #+#             */
-/*   Updated: 2015/11/09 16:12:36 by azaha            ###   ########.fr       */
+/*   Created: 2015/11/09 17:22:53 by azaha             #+#    #+#             */
+/*   Updated: 2015/11/09 18:37:02 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "libft.h"
 
-
 int	main(int argc, char **argv)
 {
-	argc++;
-	printf("%d\n%d\n", strcmp(argv[1], argv[2]), ft_strcmp(argv[1], argv[2]));
+	if(argc == 4)
+	{
+		printf("%s\n", ft_strsub(argv[1], ft_atoi(argv[2]), ft_atoi(argv[3])));
+	}
 	return (0);
 }
