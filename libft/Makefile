@@ -6,13 +6,13 @@
 #    By: vdruta <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/02 16:35:04 by vdruta            #+#    #+#              #
-#    Updated: 2015/11/09 16:04:51 by azaha            ###   ########.fr        #
+#    Updated: 2015/11/10 15:59:59 by azaha            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-SRCS = ft_putendl.c ft_strequ.c ft_strnstr.c \
+SRCS = ft_putendl.c ft_strequ.c ft_strnstr.c ft_lstmap.c ft_lstiter.c \
 	   ft_putendl_fd.c ft_striter.c ft_strrchr.c ft_atoi.c ft_lstnew.c \
 	   ft_putnbr.c ft_striteri.c ft_strsplit.c ft_bzero.c ft_memalloc.c \
 	   ft_putnbr_fd.c ft_strjoin.c ft_strstr.c ft_isalnum.c ft_memccpy.c \
@@ -21,9 +21,9 @@ SRCS = ft_putendl.c ft_strequ.c ft_strnstr.c \
 	   ft_strcat.c ft_strmap.c ft_tolower.c ft_isdigit.c ft_memcpy.c \
 	   ft_strchr.c ft_strmapi.c ft_toupper.c ft_isprint.c ft_memdel.c \
 	   ft_strclr.c ft_strncat.c ft_itoa.c ft_memmove.c ft_strcmp.c \
-	   ft_strncmp.c ft_memset.c ft_strcpy.c ft_strncpy.c \
-	   ft_putchar.c ft_strdel.c ft_strnequ.c \
-	   ft_putchar_fd.c ft_strdup.c ft_strnew.c
+	   ft_strncmp.c ft_memset.c ft_strcpy.c ft_strncpy.c ft_lstdelone.c \
+	   ft_putchar.c ft_strdel.c ft_strnequ.c ft_lstnew.c ft_lstdel.c \
+	   ft_putchar_fd.c ft_strdup.c ft_strnew.c ft_lstadd.c
 
 OBJ = $(SRCS:.c=.o)
 
