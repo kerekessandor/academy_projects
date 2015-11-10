@@ -6,7 +6,7 @@
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/27 14:05:59 by azaha             #+#    #+#             */
-/*   Updated: 2015/11/09 20:08:46 by azaha            ###   ########.fr       */
+/*   Updated: 2015/11/10 12:31:12 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,7 @@ char		*ft_strtrim(char const *s)
 	size_t	j;
 	size_t	k;
 
-	if (!s)
-		return (NULL);
-	else
+	if (s)
 	{
 		i = 0;
 		k = 0;
@@ -40,6 +38,7 @@ char		*ft_strtrim(char const *s)
 			i++;
 		}
 		*(ptr + k) = '\0';
+		return (ptr);
 	}
-	return (ptr);
+	return (NULL);
 }

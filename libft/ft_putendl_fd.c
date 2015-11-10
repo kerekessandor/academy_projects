@@ -6,7 +6,7 @@
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/29 10:23:36 by azaha             #+#    #+#             */
-/*   Updated: 2015/10/29 10:25:53 by azaha            ###   ########.fr       */
+/*   Updated: 2015/11/10 12:21:26 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@ void	ft_putendl_fd(char const *s, int fd)
 
 	ptr = (char*)s;
 	ft_putstr_fd(ptr, fd);
-	ft_putchar('\n');
+	ft_putchar_fd('\n', fd);
 }
