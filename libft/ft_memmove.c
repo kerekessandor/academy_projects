@@ -6,7 +6,7 @@
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/25 12:33:00 by azaha             #+#    #+#             */
-/*   Updated: 2015/11/09 16:22:11 by azaha            ###   ########.fr       */
+/*   Updated: 2015/11/11 17:54:22 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t index;
-	unsigned char *temp;
+	size_t			index;
+	unsigned char	*temp;
 
 	if (!(temp = (unsigned char*)malloc(sizeof(*temp) * (len + 1))))
 		return (NULL);

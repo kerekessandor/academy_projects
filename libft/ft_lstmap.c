@@ -6,7 +6,7 @@
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/10 15:35:01 by azaha             #+#    #+#             */
-/*   Updated: 2015/11/10 16:13:08 by azaha            ###   ########.fr       */
+/*   Updated: 2015/11/11 17:51:22 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,19 @@ void	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 	t_list *new_node;
 	t_list *link;
 
-	new_node = NULL;
-	link = NULL;
-	while (lst != NULL)
+	if (!lst)
+		return (NULL);
+	link = f(lst);
+	if (!link)
+		return (NULL);
+	new_node = link;
+	while (lst->next)
 	{
-		if (new_node == NULL)
-		{
-			new_node = f(lst);
-			link = new_node;
-		}
-		else
-		{
-			link->next = f(lst);
-		}
+		lst = lst->next;
+		link->next = f(lst);
+		if (!link->next)
+			return (NULL);
+		link = link->next;
 	}
 	return (new_node);
 }
