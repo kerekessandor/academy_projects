@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   best_code.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/11/13 14:23:38 by azaha             #+#    #+#             */
+/*   Updated: 2015/11/13 15:24:37 by azaha            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -13,7 +25,7 @@ typedef	struct	student
 
 void	print_students(student student)
 {
-	if (strcmp(student.country, "Cluj") == 0 && atoi(student.grade) > 8.00)
+	if (strcmp(student.country, "Cluj") == 0 && atoi(student.grade) >= 8.00)
 		printf("%s %s\n", student.first_name, student.last_name);
 }
 
@@ -27,19 +39,19 @@ void	fill_columns(char *to_complete, char *buff, int word_index, int line_index)
 void	go_through_file(FILE *fp)
 {
 	char	buff[255];
-	int		line_index;
+	int		buff_index;
 	int		word_index;
 	int		column;
 
 	while (fscanf(fp, "%s", buff) > 0)
 	{
 		student student;
-		line_index = 0;
+		buff_index = 0;
 		word_index = 0;
 		column = 0;
-		while (buff[line_index] != '\0')
+		while (buff[buff_index] != '\0')
 		{
-			if (buff[line_index] == ';')
+			if (buff[buff_index] == ';')
 			{
 				column++;
 				word_index = 0;
@@ -47,18 +59,18 @@ void	go_through_file(FILE *fp)
 			else
 			{
 				if (column == 0)
-					fill_columns (student.first_name, buff, word_index, line_index);
+					fill_columns (student.first_name, buff, word_index, buff_index);
 				if (column == 1)
-					fill_columns (student.last_name, buff, word_index, line_index);
+					fill_columns (student.last_name, buff, word_index, buff_index);
 				if (column == 2)
-					fill_columns (student.e_mail, buff, word_index, line_index);
+					fill_columns (student.e_mail, buff, word_index, buff_index);
 				if (column == 3)
-					fill_columns (student.grade, buff, word_index, line_index);
+					fill_columns (student.grade, buff, word_index, buff_index);
 				if (column == 4)
-					fill_columns (student.country, buff, word_index, line_index);
+					fill_columns (student.country, buff, word_index, buff_index);
 				word_index++;
 			}
-			line_index++;
+			buff_index++;
 		}
 		print_students(student);
 	}
@@ -68,7 +80,6 @@ void	go_through_file(FILE *fp)
 int		main(void)
 {
 	FILE	*fp;
-	char	buff[255];
 	fp = fopen("students.csv", "r");
 	go_through_file(fp);
 	return (0);
