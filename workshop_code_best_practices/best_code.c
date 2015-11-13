@@ -6,7 +6,7 @@
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/13 14:23:38 by azaha             #+#    #+#             */
-/*   Updated: 2015/11/13 17:08:19 by azaha            ###   ########.fr       */
+/*   Updated: 2015/11/13 18:08:18 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ typedef	struct	student
 	char	last_name[30];
 	char	e_mail[30];
 	char	grade[5];
-	char	country[20];
+	char	county[20];
 }				student;
 
 void	print_students(student student)
 {
-	if (strcmp(student.country, "Cluj") == 0 && atoi(student.grade) >= 8.00)
+	if (strcmp(student.county, "Cluj") == 0 && atoi(student.grade) >= 8.00)
 		printf("%s %s\n", student.first_name, student.last_name);
 }
 
@@ -43,13 +43,20 @@ int		is_alpha(int c)
 	return (0);
 }
 
-int		check_first_name(char *first_name, int *valid_student)
+int		is_number(int n)
 {
-	while (*first_name)
+	if (n >= '0' && n <= '9')
+		return (1);
+	return (0);
+}
+
+int		check_word(char *word, int *valid_student)
+{
+	while (*word)
 	{
-		if (is_alpha(*first_name) == 0)
+		if (is_alpha(*word) == 0)
 			*valid_student = 0;
-		first_name++;
+		word++;
 	}
 	return (*valid_student);
 }
@@ -58,7 +65,6 @@ int		check_e_mail(char *e_mail, int *valid_student)
 {
 	int	is_valid = 0;
 
-	//printf("%s\n", e_mail);
 	while (*e_mail)
 	{
 		if (*e_mail == '@')
@@ -72,15 +78,20 @@ int		check_e_mail(char *e_mail, int *valid_student)
 	return (*valid_student);
 }
 
-int		check_last_name(char *last_name, int *valid_student)
+int		check_grade(char *grade, int *valid_student)
 {
-	//printf("%s\n", last_name);
-	while (*last_name)
+	int points = 0;
+
+	while (*grade)
 	{
-		if (is_alpha(*last_name) == 0)
+		if (*grade == '.')
+			points++;
+		else if (is_number(*grade) == 0)
 			*valid_student = 0;
-		last_name++;
+		grade++;
 	}
+	if (points > 1)
+		*valid_student = 0;
 	return (*valid_student);
 }
 
@@ -113,21 +124,20 @@ void	go_through_file(FILE *fp)
 				if (column == 1)
 					fill_columns (student.last_name, buff, word_index, buff_index);
 				if (column == 2)
-				{
 					fill_columns (student.e_mail, buff, word_index, buff_index);
-				}
 				if (column == 3)
 					fill_columns (student.grade, buff, word_index, buff_index);
 				if (column == 4)
-					fill_columns (student.country, buff, word_index, buff_index);
+					fill_columns (student.county, buff, word_index, buff_index);
 				word_index++;
 			}
 			buff_index++;
 		}
-		//printf("%s\n", student.e_mail);
-		check_first_name(student.first_name, &valid_student);
-		check_last_name(student.last_name, &valid_student);
+		check_word(student.first_name, &valid_student);
+		check_word(student.last_name, &valid_student);
 		check_e_mail(student.e_mail, &valid_student);
+		check_word(student.county, &valid_student);
+		check_grade(student.grade, &valid_student);
 		if(valid_student == 1)
 			print_students(student);
 	}
