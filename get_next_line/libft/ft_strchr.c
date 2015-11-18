@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/16 16:27:55 by azaha             #+#    #+#             */
-/*   Updated: 2015/11/18 15:12:58 by azaha            ###   ########.fr       */
+/*   Created: 2015/10/24 16:38:58 by azaha             #+#    #+#             */
+/*   Updated: 2015/11/08 17:29:39 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+char	*ft_strchr(const char *s, int c)
+{
+	int index;
 
-# include <stdlib.h>
-# include <string.h>
-# include <fcntl.h>
-# include <unistd.h>
-# include "../libft/libft.h"
-# define BUFF_SIZE 8
-
-int		get_next_line(int const fd, char **line);
-
-#endif
+	index = 0;
+	while (s[index] != '\0')
+	{
+		if (s[index] == (char)c)
+			return ((char *)(s + index));
+		index++;
+	}
+	if (s[index] == (char)c)
+		return ((char*)(s + index));
+	return (0);
+}

@@ -1,25 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/16 16:27:55 by azaha             #+#    #+#             */
-/*   Updated: 2015/11/18 15:12:58 by azaha            ###   ########.fr       */
+/*   Created: 2015/11/06 18:46:42 by azaha             #+#    #+#             */
+/*   Updated: 2015/11/06 19:14:24 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# include <stdlib.h>
-# include <string.h>
-# include <fcntl.h>
-# include <unistd.h>
-# include "../libft/libft.h"
-# define BUFF_SIZE 8
+void	ft_putnbr_fd(int n, int fd)
+{
+	int		index;
+	long	aux;
+	char	position[11];
 
-int		get_next_line(int const fd, char **line);
-
-#endif
+	index = 0;
+	aux = n;
+	if (aux == 0)
+		ft_putchar_fd('0', fd);
+	if (aux < 0)
+	{
+		ft_putchar_fd('-', fd);
+		aux = -aux;
+	}
+	while (aux != 0)
+	{
+		position[index] = aux % 10 + '0';
+		aux = aux / 10;
+		index++;
+	}
+	index--;
+	while (index >= 0)
+	{
+		ft_putchar_fd(position[index], fd);
+		index--;
+	}
+}
