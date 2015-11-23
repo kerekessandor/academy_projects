@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/19 13:48:37 by azaha             #+#    #+#             */
-/*   Updated: 2015/11/23 14:25:23 by azaha            ###   ########.fr       */
+/*   Created: 2015/11/23 15:52:11 by azaha             #+#    #+#             */
+/*   Updated: 2015/11/23 18:57:46 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-#include <stdio.h>
+#include "ft_printf.h"
 
-int		main(void)
+int		ft_printf(const char * format, ...)
 {
-	int		fd;
-	char	*line;
+	va_list ap;
 
-	fd = open("text.txt", O_RDONLY);
-	while (get_next_line(fd, &line))
-		printf("%s\n", line);
-	close(fd);
-	return (0);
+	va_start(ap, format);
+	while(*format)
+	{
+		if (*format == '%')
+		{
+			format++;
+			while (!(ft_strchr(KNOWN_FLAGS, *format)))
+			{
+
+				format++;
+			}
+		}
+		else
+			ft_putchar(*format);
+		format++;
+	}
 }

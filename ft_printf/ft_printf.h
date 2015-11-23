@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/19 13:48:37 by azaha             #+#    #+#             */
-/*   Updated: 2015/11/23 14:25:23 by azaha            ###   ########.fr       */
+/*   Created: 2015/11/23 18:04:30 by azaha             #+#    #+#             */
+/*   Updated: 2015/11/23 18:57:50 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-#include <stdio.h>
+#ifndef
+# define FT_PRINTF_H
 
-int		main(void)
-{
-	int		fd;
-	char	*line;
+#include <stdarg.h>
+#include <unistd.h>
+#include <stdlib.h>
 
-	fd = open("text.txt", O_RDONLY);
-	while (get_next_line(fd, &line))
-		printf("%s\n", line);
-	close(fd);
-	return (0);
-}
+# define "sSpdDioOuUxXcC%" KNOWN_FLAGS
+
+int		ft_printf(const char *format, ...);
+
+
+
+#endif
