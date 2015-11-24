@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/23 18:04:30 by azaha             #+#    #+#             */
-/*   Updated: 2015/11/24 17:17:21 by azaha            ###   ########.fr       */
+/*   Created: 2015/11/05 13:01:52 by azaha             #+#    #+#             */
+/*   Updated: 2015/11/06 18:26:42 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft/libft.h"
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+{
+	unsigned int index;
 
-# define FLAGS "sSpdDioOuUxXcC%"
-
-int		ft_printf(const char *format, ...);
-
-#endif
+	index = 0;
+	while (*(s + index) != '\0')
+	{
+		f(index, s + index);
+		index++;
+	}
+}

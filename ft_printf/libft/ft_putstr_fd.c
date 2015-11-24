@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/23 18:04:30 by azaha             #+#    #+#             */
-/*   Updated: 2015/11/24 17:17:21 by azaha            ###   ########.fr       */
+/*   Created: 2015/10/29 10:20:08 by azaha             #+#    #+#             */
+/*   Updated: 2015/10/29 10:22:09 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft/libft.h"
+void	ft_putstr_fd(char const *s, int fd)
+{
+	char *ptr;
 
-# define FLAGS "sSpdDioOuUxXcC%"
-
-int		ft_printf(const char *format, ...);
-
-#endif
+	ptr = (char*)s;
+	while (*ptr != '\0')
+	{
+		ft_putchar_fd(*ptr, fd);
+		ptr++;
+	}
+}

@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/23 18:04:30 by azaha             #+#    #+#             */
-/*   Updated: 2015/11/24 17:17:21 by azaha            ###   ########.fr       */
+/*   Created: 2015/10/27 10:53:33 by azaha             #+#    #+#             */
+/*   Updated: 2015/11/06 18:51:57 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft/libft.h"
-
-# define FLAGS "sSpdDioOuUxXcC%"
-
-int		ft_printf(const char *format, ...);
-
-#endif
+int		ft_strnequ(const char *s1, const char *s2, size_t n)
+{
+	if (ft_strncmp(s1, s2, n) != 0)
+		return (0);
+	else
+		return (1);
+}

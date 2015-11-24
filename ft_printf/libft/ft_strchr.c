@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/23 18:04:30 by azaha             #+#    #+#             */
-/*   Updated: 2015/11/24 17:17:21 by azaha            ###   ########.fr       */
+/*   Created: 2015/10/24 16:38:58 by azaha             #+#    #+#             */
+/*   Updated: 2015/11/08 17:29:39 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+char	*ft_strchr(const char *s, int c)
+{
+	int index;
 
-# include <stdarg.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include "libft/libft.h"
-
-# define FLAGS "sSpdDioOuUxXcC%"
-
-int		ft_printf(const char *format, ...);
-
-#endif
+	index = 0;
+	while (s[index] != '\0')
+	{
+		if (s[index] == (char)c)
+			return ((char *)(s + index));
+		index++;
+	}
+	if (s[index] == (char)c)
+		return ((char*)(s + index));
+	return (0);
+}
