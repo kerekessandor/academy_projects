@@ -5,44 +5,71 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/23 15:52:11 by azaha             #+#    #+#             */
-/*   Updated: 2015/11/24 17:27:04 by azaha            ###   ########.fr       */
+/*   Created: 2015/11/25 13:19:51 by azaha             #+#    #+#             */
+/*   Updated: 2015/11/25 18:02:02 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static	int	process_string(const char *format, va_list *ap, size_t nr_of_bytes)
-{
-	char *next_arg;
 
-	if (*format == '\0')
-		return (nr_of_bytes);
-	next_arg = ft_strchr(format, '%');
-	if (next_arg == NULL)
+
+static	int	ft_flag_length(char const *s)
+{
+	int index;
+	int flag_end;
+
+	index = 1;
+	flag_end = 0;
+	while (ft_strchr(INNER_FLAGS, s[index]) && s[index] != '\0')
 	{
-		ft_putstr(format);
-		return (nr_of_bytes + ft_strlen(format));
+		flag_end++;
+		index++;
 	}
-	else if (next_arg > format)
+	if (ft_strchr(END_FLAGS, s[index]) && s[index] != '\0')
 	{
-		ft_putnstr(format, next_arg - format);
-		return (process_string(next_arg, ap, nr_of_bytes + (next_arg - format)));
+		flag_end++;
+		ft_putstr("valid flag -> ");
 	}
 	else
-	{
-
-	}
+		ft_putstr("not a valid flag -> ");
+	return (flag_end);
 }
 
-int			ft_printf(const char * format, ...)
+static	int	process_string(char const *format, va_list *ap)
 {
-	int		ret;
-	va_list	ap;
+	int		value;
+	int		flag_end;
+	char	*flag;
 
-	ret = 0;
+	ap = 0;
+	value = 0;
+	flag_end = 0;
+	while (*format != '\0')
+	{
+		if (*format == '%')
+		{
+			flag_end = ft_flag_length(format);
+			flag = ft_strsub(format, 0, flag_end + 1);
+			ft_putstr(flag);
+			ft_putchar('\n');
+			format += flag_end + 1;
+		}
+	/*	else
+			ft_putchar(*format);*/
+		format++;
+	}
+	return(value);
+}
+
+int		ft_printf(char const *format, ...)
+{
+	va_list ap;
+	int		value;
+
+	value = 0;
 	va_start(ap, format);
-	ret = process_string(format, &ap, 0);
+	value = process_string(format, &ap);
 	va_end(ap);
-	return (ret);
+	return (value);
 }

@@ -6,15 +6,14 @@
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 16:43:26 by azaha             #+#    #+#             */
-/*   Updated: 2015/11/24 16:50:32 by azaha            ###   ########.fr       */
+/*   Updated: 2015/11/25 18:02:07 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft/libft.h"
 
 int		main(void)
 {
-	ft_printf("buna ziua");
+	ft_printf("buna ziua %hhsasdasd %3h45");
 	return (0);
 }
