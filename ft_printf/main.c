@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/24 16:43:26 by azaha             #+#    #+#             */
-/*   Updated: 2015/11/25 18:38:21 by azaha            ###   ########.fr       */
+/*   Created: 2015/11/26 17:41:15 by azaha             #+#    #+#             */
+/*   Updated: 2015/11/26 18:23:42 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 int		main(void)
 {
-	int ret = 0;
-	ret = ft_printf("%s are %s ani!\n", "andrei", "23");
-	ft_putnbr(ret);
+	ft_printf("%hhl are %hh#d ani",  23);
 	return (0);
 }
