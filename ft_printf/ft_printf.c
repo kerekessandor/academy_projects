@@ -6,7 +6,7 @@
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/25 13:19:51 by azaha             #+#    #+#             */
-/*   Updated: 2015/11/27 15:50:15 by azaha            ###   ########.fr       */
+/*   Updated: 2015/11/27 19:42:05 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,15 @@ static	void	set_flags_to_zero(t_flag *farg)
 	farg->dot_width = 0;
 }
 
-static	char	*get_identifier(char *descriptor, va_list *ap, int len)
+static	char	*get_identifier(char *descriptor, va_list *ap, int len, t_flag *flag)
 {
-	if (descriptor[len] == 'd')
+	if (descriptor[len] == 's')
+	{
+		//descriptor = ft_itoa(va_arg(*ap, int));
+		return(case_flags(descriptor, ap, flag));
+	}
+	else if (descriptor[len] == 'd')
 		descriptor = ft_itoa(va_arg(*ap, int));
-	else if (descriptor[len] == 's')
-		descriptor = va_arg(*ap, char*);
 	return (descriptor);
 }
 
@@ -70,11 +73,11 @@ static	int		process_string(char const *format, va_list *ap)
 			set_flags_to_zero(&flag);
 			descript_len = ft_descriptor_length(format);
 			descriptor = ft_strsub(format, 0, descript_len);
+			compute_flag(descriptor, &flags);
 			if (descript_len > 0)
 			{
-				to_print = get_identifier(descriptor, ap, descript_len - 1);
+				to_print = get_identifier(descriptor, ap, descript_len - 1, &flag);
 				value += ft_strlen(to_print);
-				ft_putstr(to_print);
 				format += descript_len;
 			}
 			else

@@ -6,7 +6,7 @@
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 18:04:30 by azaha             #+#    #+#             */
-/*   Updated: 2015/11/26 16:53:05 by azaha            ###   ########.fr       */
+/*   Updated: 2015/11/27 18:29:20 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,6 @@ typedef	struct		s_flag
 }					t_flag;
 
 int					ft_printf(const char *format, ...);
-
+char				*case_string(char *descriptor, va_list *ap, t_flag *flag);
+void				ft_compute_flags(char *descriptor, t_flag flag);
 #endif
