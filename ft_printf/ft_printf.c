@@ -6,7 +6,7 @@
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/25 13:19:51 by azaha             #+#    #+#             */
-/*   Updated: 2015/11/26 18:29:16 by azaha            ###   ########.fr       */
+/*   Updated: 2015/11/27 14:58:50 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,59 +29,64 @@ static	void	set_flags_to_zero(t_flag *farg)
 	farg->dot_width = 0;
 }
 
-static	char	*set_descriptor(char *descriptor, va_list *ap, int descript_end)
+static	char	*get_identifier(char *descriptor, va_list *ap, int len)
 {
-	if (descriptor[descript_end] == 'd')
+	if (descriptor[len] == 'd')
 		descriptor = ft_itoa(va_arg(*ap, int));
-	else if (descriptor[descript_end] == 's')
+	else if (descriptor[len] == 's')
 		descriptor = va_arg(*ap, char*);
 	return (descriptor);
 }
-/*
-static	void	edit_descriptor()
-{
 
-}
-*/
-static	int		ft_descriptor_length(char const *s)
+static	int		ft_descriptor_length(char const *format)
 {
-	int index;
-	int descript_end;
-
-	index = 1;
-	descript_end = 0;
-	while (ft_strchr(FLAGS, s[index]) && s[index] != '\0')
+	int len;
+	int i;
+	
+	i = 1;
+	len = 1;
+	while (ft_strchr(FLAGS, format[i]) && format[i] != '\0')
 	{
-		descript_end++;
-		index++;
+		i++;
+		len++;
 	}
-	return (descript_end -1);
+	if (ft_strchr(IDENTIFIERS, format[i]) && format[i] != '\0')
+	{
+		//ft_putstr("VALID -> ");
+		return (len + 1);
+	}
+	else 
+	{
+		//ft_putstr("NOT VALID -> ");
+		return (len);
+	}
 }
 
 static	int		process_string(char const *format, va_list *ap)
 {
 	int		value;
-	int		descript_end;
+	int		descript_len;
 	char	*descriptor;
 	t_flag	flag;
 
 	value = 0;
-	descript_end = 0;
+	descript_len = 0;
 	while (*format != '\0')
 	{
 		if (*format == '%')
 		{
-			descript_end = ft_descriptor_length(format);
-			descriptor = ft_strsub(format, 0, descript_end + 1);
 			set_flags_to_zero(&flag);
-			if (ft_strchr(IDENTIFIERS, format[descript_end]))
-				ft_putstr(set_descriptor(descriptor, ap, descript_end));
-			format += descript_end;
+			descript_len = ft_descriptor_length(format);
+			descriptor = ft_strsub(format, 0, descript_len);
+			ft_putstr(get_identifier(descriptor, ap, descript_len - 1));
+			format += descript_len;
 		}
 		else
+		{
 			ft_putchar(*format);
-		format++;
-		value++;
+			format++;
+			value++;
+		}
 	}
 	return (value);
 }
