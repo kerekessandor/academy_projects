@@ -6,7 +6,7 @@
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/25 13:19:51 by azaha             #+#    #+#             */
-/*   Updated: 2015/11/27 14:58:50 by azaha            ###   ########.fr       */
+/*   Updated: 2015/11/27 15:50:15 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,25 +41,16 @@ static	char	*get_identifier(char *descriptor, va_list *ap, int len)
 static	int		ft_descriptor_length(char const *format)
 {
 	int len;
-	int i;
-	
-	i = 1;
+
 	len = 1;
-	while (ft_strchr(FLAGS, format[i]) && format[i] != '\0')
-	{
-		i++;
+	while (ft_strchr(FLAGS, format[len]) && format[len] != '\0')
 		len++;
-	}
-	if (ft_strchr(IDENTIFIERS, format[i]) && format[i] != '\0')
-	{
-		//ft_putstr("VALID -> ");
+	if (ft_strchr(IDENTIFIERS, format[len]) && format[len] != '\0')
 		return (len + 1);
-	}
-	else 
-	{
-		//ft_putstr("NOT VALID -> ");
+	else if (format[len] == '\0' || !ft_strchr(IDENTIFIERS, format[len]))
+		return (len - 1);
+	else
 		return (len);
-	}
 }
 
 static	int		process_string(char const *format, va_list *ap)
@@ -68,18 +59,26 @@ static	int		process_string(char const *format, va_list *ap)
 	int		descript_len;
 	char	*descriptor;
 	t_flag	flag;
+	char	*to_print;
 
 	value = 0;
 	descript_len = 0;
+	to_print = NULL;
 	while (*format != '\0')
-	{
 		if (*format == '%')
 		{
 			set_flags_to_zero(&flag);
 			descript_len = ft_descriptor_length(format);
 			descriptor = ft_strsub(format, 0, descript_len);
-			ft_putstr(get_identifier(descriptor, ap, descript_len - 1));
-			format += descript_len;
+			if (descript_len > 0)
+			{
+				to_print = get_identifier(descriptor, ap, descript_len - 1);
+				value += ft_strlen(to_print);
+				ft_putstr(to_print);
+				format += descript_len;
+			}
+			else
+				format++;
 		}
 		else
 		{
@@ -87,7 +86,6 @@ static	int		process_string(char const *format, va_list *ap)
 			format++;
 			value++;
 		}
-	}
 	return (value);
 }
 
