@@ -4,26 +4,22 @@ int		edit_string(va_list *ap, t_flag flag)
 {
 	char *text;
 	char *spaces;
-	char fill;
 
 	text = va_arg(*ap, char *);
-	fill = ' ';
-	if (flag.has_zero)
-		fill = '0';
 	if (flag.width > ft_strlen(text))
 	{
 		spaces = ft_memalloc(flag.width - ft_strlen(text) + 1);
-		spaces = ft_memset(spaces, fill, flag.width - ft_strlen(text));
-		//spaces[fill.width - ft_strlen(text) + 1] = '\n';
-		if (flag.has_minus == 0)
+		spaces = ft_memset(spaces, ' ', flag.width - ft_strlen(text));
+		//spaces[fill.width - ft_strlen(text) + 1] = '\n'; ????????????????????????
+		if (flag.has_minus == 1)
 		{
-			ft_putstr(spaces);
 			ft_putstr(text);
+			ft_putstr(spaces);
 		}
 		else
 		{
-			ft_putstr(text);
 			ft_putstr(spaces);
+			ft_putstr(text);
 		}
 	}
 	else if (!text)

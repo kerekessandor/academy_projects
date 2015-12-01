@@ -3,10 +3,10 @@
 
 int		main(void)
 {
-	ft_printf("%20s", "nimic");
+	ft_printf("{%s}", "");
 	printf("\n");
 	printf("----FT_PRINTF----\n");
-	printf("%20s", "nimic");
+	printf("{%s}", "");
 	printf("\n");
 	printf("-----PRINTF-----\n");
 	return(0);
