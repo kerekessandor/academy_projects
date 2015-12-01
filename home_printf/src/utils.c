@@ -79,10 +79,10 @@ static	void	check_precision(char **descriptor, t_flag *flag)
 	}
 }
 
-int					process_descriptor(char *descriptor, va_list *ap)
+int				process_descriptor(char *descriptor, va_list *ap)
 {
-	int chrs;
-	t_flag flag;
+	int 	chrs;
+	t_flag	flag;
 
 	chrs = 0;
 	set_flags_to_zero(&flag);

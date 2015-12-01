@@ -33,7 +33,7 @@ typedef	struct		s_flag
 
 int 				ft_printf(const char *format, ...);
 int					process_descriptor(char *descriptor, va_list *ap);
-int					check_identifier(char *descriptor, va_list ap, t_flag flag);
-int		edit_string(va_list *ap, t_flag flag);
+int					check_identifier(char *descriptor, va_list *ap, t_flag flag);
+int					edit_string(va_list *ap, t_flag flag);
 
 #endif

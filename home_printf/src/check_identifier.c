@@ -1,6 +1,6 @@
 #include "../includes/ft_printf.h"
 
-static	int 	check_char_identifiers(char *descriptor, va_list ap, t_flag flag)
+static	int 	check_char_identifiers(char *descriptor, va_list *ap, t_flag flag)
 {
 	if (*descriptor == 's')
 		return(edit_string(ap, flag));
@@ -9,7 +9,7 @@ static	int 	check_char_identifiers(char *descriptor, va_list ap, t_flag flag)
 	return (0);
 }
 
-int				check_identifier(char *descriptor, va_list ap, t_flag flag)
+int				check_identifier(char *descriptor, va_list *ap, t_flag flag)
 {
 	int chrs;
 
