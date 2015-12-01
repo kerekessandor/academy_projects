@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/26 17:41:15 by azaha             #+#    #+#             */
-/*   Updated: 2015/11/27 19:40:37 by azaha            ###   ########.fr       */
+/*   Created: 2015/11/05 13:01:52 by azaha             #+#    #+#             */
+/*   Updated: 2015/11/06 18:26:42 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int		main(void)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	ft_printf("%s", "andrei");
-	return (0);
+	unsigned int index;
+
+	index = 0;
+	while (*(s + index) != '\0')
+	{
+		f(index, s + index);
+		index++;
+	}
 }

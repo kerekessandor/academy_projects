@@ -1,20 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/26 17:41:15 by azaha             #+#    #+#             */
-/*   Updated: 2015/11/27 19:40:37 by azaha            ###   ########.fr       */
+/*   Created: 2015/10/22 11:47:28 by azaha             #+#    #+#             */
+/*   Updated: 2015/11/11 17:29:59 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
 #include <stdio.h>
 
-int		main(void)
+int		ft_atoi(const char *str)
 {
-	ft_printf("%s", "andrei");
-	return (0);
+	int i;
+	int s;
+	int rez;
+
+	i = 0;
+	rez = 0;
+	s = 1;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+		i++;
+	if (str[i] == '+')
+		i++;
+	else if (str[i] == '-')
+	{
+		s = -1;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		rez = rez * 10 + str[i] - '0';
+		i++;
+	}
+	return (rez * s);
 }

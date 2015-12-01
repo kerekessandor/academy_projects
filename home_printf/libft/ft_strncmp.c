@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/26 17:41:15 by azaha             #+#    #+#             */
-/*   Updated: 2015/11/27 19:40:37 by azaha            ###   ########.fr       */
+/*   Created: 2015/10/24 20:25:43 by azaha             #+#    #+#             */
+/*   Updated: 2015/11/10 16:59:35 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int		main(void)
+int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	ft_printf("%s", "andrei");
+	size_t index;
+
+	index = 0;
+	while ((*s1 || *s2) && index < n)
+	{
+		if (*(unsigned char*)s1 != *(unsigned char*)s2)
+			return (*(unsigned char*)s1 - *(unsigned char*)s2);
+		s1++;
+		s2++;
+		index++;
+	}
 	return (0);
 }

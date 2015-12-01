@@ -12,30 +12,28 @@
 
 #include "ft_printf.h"
 
-static	void	set_flags_to_zero(t_flag *farg)
+static	void	set_flags_to_zero(t_flag *flag)
 {
-	farg->has_hashtag = 0;
-	farg->has_plus = 0;
-	farg->has_zero = 0;
-	farg->has_h = 0;
-	farg->has_l = 0;
-	farg->has_j = 0;
-	farg->has_z = 0;
-	farg->has_dot = 0;
-	farg->has_hh = 0;
-	farg->has_ll = 0;
-	farg->has_space = 0;
-	farg->width = 0;
-	farg->dot_width = 0;
+	flag->has_dot = 0;
+	flag->has_hash = 0;
+	flag->has_zero = 0;
+	flag->has_plus = 0;
+	flag->has_minus = 0;
+	flag->has_space = 0;
+	flag->mod_h = 0;
+	flag->mod_hh = 0;
+	flag->mod_l = 0;
+	flag->mod_ll = 0;
+	flag->mod_j = 0;
+	flag->mod_z = 0;
+	flag->width = 0;
+	flag->dot_width = 0;
 }
 
 static	char	*get_identifier(char *descriptor, va_list *ap, int len, t_flag *flag)
 {
 	if (descriptor[len] == 's')
-	{
-		//descriptor = ft_itoa(va_arg(*ap, int));
 		return(case_flags(descriptor, ap, flag));
-	}
 	else if (descriptor[len] == 'd')
 		descriptor = ft_itoa(va_arg(*ap, int));
 	return (descriptor);

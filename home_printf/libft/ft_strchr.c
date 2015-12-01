@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/26 17:41:15 by azaha             #+#    #+#             */
-/*   Updated: 2015/11/27 19:40:37 by azaha            ###   ########.fr       */
+/*   Created: 2015/10/24 16:38:58 by azaha             #+#    #+#             */
+/*   Updated: 2015/11/08 17:29:39 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdio.h>
-
-int		main(void)
+char	*ft_strchr(const char *s, int c)
 {
-	ft_printf("%s", "andrei");
+	int index;
+
+	index = 0;
+	while (s[index] != '\0')
+	{
+		if (s[index] == (char)c)
+			return ((char *)(s + index));
+		index++;
+	}
+	if (s[index] == (char)c)
+		return ((char*)(s + index));
 	return (0);
 }

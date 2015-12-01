@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/26 17:41:15 by azaha             #+#    #+#             */
-/*   Updated: 2015/11/27 19:40:37 by azaha            ###   ########.fr       */
+/*   Created: 2015/11/06 17:42:20 by azaha             #+#    #+#             */
+/*   Updated: 2015/11/06 19:14:47 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int		main(void)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	ft_printf("%s", "andrei");
-	return (0);
+	unsigned int	index;
+	char			*map;
+
+	index = 0;
+	if (!(map = (char*)malloc(sizeof(map) * (ft_strlen(s) + 1))))
+		map = NULL;
+	else
+	{
+		while (s[index])
+		{
+			map[index] = f(index, s[index]);
+			index++;
+		}
+		map[index] = '\0';
+	}
+	return (map);
 }

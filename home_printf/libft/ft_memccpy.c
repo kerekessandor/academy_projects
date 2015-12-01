@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/26 17:41:15 by azaha             #+#    #+#             */
-/*   Updated: 2015/11/27 19:40:37 by azaha            ###   ########.fr       */
+/*   Created: 2015/10/25 12:19:51 by azaha             #+#    #+#             */
+/*   Updated: 2015/10/25 13:56:05 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int		main(void)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	ft_printf("%s", "andrei");
+	size_t i;
+
+	i = 0;
+	while (i < n)
+	{
+		if (*(unsigned char*)(src + i) == (unsigned char)c)
+			return (dst + i + 1);
+		else
+			i++;
+	}
 	return (0);
 }

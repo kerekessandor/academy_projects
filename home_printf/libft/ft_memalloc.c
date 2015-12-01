@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/26 17:41:15 by azaha             #+#    #+#             */
-/*   Updated: 2015/11/27 19:40:37 by azaha            ###   ########.fr       */
+/*   Created: 2015/10/25 15:53:12 by azaha             #+#    #+#             */
+/*   Updated: 2015/11/09 18:22:20 by azaha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int		main(void)
+void	*ft_memalloc(size_t size)
 {
-	ft_printf("%s", "andrei");
-	return (0);
+	void	*ptr;
+
+	if (!(ptr = (void*)malloc(sizeof(*ptr) * size)) || (size == 0))
+		return (NULL);
+	ptr = ft_memset(ptr, '\0', size);
+	return (ptr);
 }
