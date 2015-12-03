@@ -5,10 +5,10 @@ int		main(void)
 {
 	unsigned int a, b;
 
-	a = ft_printf("%#020x", 42);
+	a = ft_printf("%X %s", 125, "bunica");
 	printf("\n");
 	printf("----FT_PRINTF----\n");
-	b = printf("%#020x", 42);
+	b = printf("%X %s", 125, "bunica");
 	printf("\n");
 	printf("-----PRINTF-----\n");
 	printf("\na = %d\nb = %d\n", a, b);

@@ -38,6 +38,7 @@ int					edit_string(va_list *ap, t_flag flag);
 int					edit_char(va_list *ap, t_flag flag);
 int					edit_integer(va_list *ap, t_flag flag);
 int					edit_hexa(va_list *ap, t_flag flag);
+int					edit_uppercase_hexa(va_list *ap, t_flag flag);
 /*
 int					edit_address(va_list *ap, t_flag flag);
 int					edit_octal(va_list *ap, t_flag flag);
