@@ -3,11 +3,14 @@
 
 int		main(void)
 {
-	ft_printf("%#x", 0);
+	unsigned int a, b;
+
+	a = ft_printf("%#020x", 42);
 	printf("\n");
 	printf("----FT_PRINTF----\n");
-	printf("%#x", 0);
+	b = printf("%#020x", 42);
 	printf("\n");
 	printf("-----PRINTF-----\n");
+	printf("\na = %d\nb = %d\n", a, b);
 	return(0);
 }
