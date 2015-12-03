@@ -22,7 +22,7 @@ int		edit_string(va_list *ap, t_flag flag)
 			ft_putstr(text);
 		}
 	}
-	else if (!text)
+	else if (!text || *ap == '\0')
 	{
 		ft_putstr("(null)");
 		return (6);

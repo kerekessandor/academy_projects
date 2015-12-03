@@ -3,10 +3,10 @@
 
 int		main(void)
 {
-	ft_printf("{%s}", "");
+	ft_printf("%#x", 0);
 	printf("\n");
 	printf("----FT_PRINTF----\n");
-	printf("{%s}", "");
+	printf("%#x", 0);
 	printf("\n");
 	printf("-----PRINTF-----\n");
 	return(0);

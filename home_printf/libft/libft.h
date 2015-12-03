@@ -85,4 +85,9 @@ void			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void			ft_lstadd(t_list **alst, t_list *new);
 void			ft_putnstr(char const *s, size_t n);
 
+/* ----- FT_PRINTF ----- */
+
+char			*ft_itoa_base16(unsigned int nbr, const char *trans_table);
+char			*ft_strrev(char *str);
+
 #endif

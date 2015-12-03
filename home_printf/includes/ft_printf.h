@@ -37,5 +37,10 @@ int					check_identifier(char *descriptor, va_list *ap, t_flag flag);
 int					edit_string(va_list *ap, t_flag flag);
 int					edit_char(va_list *ap, t_flag flag);
 int					edit_integer(va_list *ap, t_flag flag);
-
+int					edit_hexa(va_list *ap, t_flag flag);
+/*
+int					edit_address(va_list *ap, t_flag flag);
+int					edit_octal(va_list *ap, t_flag flag);
+int					edit_unsigned_decimal(va_list *ap, t_flag flag);
+*/
 #endif
