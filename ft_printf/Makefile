@@ -3,33 +3,31 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: azaha <marvin@42.fr>                       +#+  +:+       +#+         #
+#    By: anflorea <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2015/11/24 17:19:23 by azaha             #+#    #+#              #
-#    Updated: 2015/11/24 17:20:15 by azaha            ###   ########.fr        #
+#    Created: 2015/11/26 17:16:12 by anflorea          #+#    #+#              #
+#    Updated: 2015/11/27 17:09:06 by anflorea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = orice
+NAME = libftprintf.a
 
-SRCS = ft_printf.c main.c
+SRCS = src/*.c \
+	   libft/*.c
 
-OBJ = $(SRCS:.c=.o)
+OBJ = *.o
 
 all: $(NAME)
 
 $(NAME):
-	make -C libft/ fclean
-	make -C libft/
-	gcc -Wall -Werror -Wextra -I libft/includes/ -c $(SRCS)
-	gcc -o $(NAME) $(OBJ) -L libft/ -lft
+	gcc -Wall -Wextra -Werror -I libft/ -I includes/ -c $(SRCS)
+	ar rc $(NAME) $(OBJ)
+	ranlib $(NAME)
 
 clean:
 	/bin/rm -f $(OBJ)
-	make -C libft/ clean
 
 fclean: clean
 	/bin/rm -f $(NAME)
-	/bin/rm -f libft/libft.a
 
 re: fclean all
