@@ -5,10 +5,10 @@ int		main(void)
 {
 	unsigned int a, b;
 
-	a = ft_printf("Ma numesc %s si am %d %s", "andrei", 23 ,"ani");
+	a = ft_printf("%#22.2X", 232);
 	printf("\n");
 	printf("----FT_PRINTF----\n");
-	b = printf("Ma numesc %s si am %d %s", "andrei", 23 ,"ani");
+	b = printf("%#22.2X", 232);
 	printf("\n");
 	printf("-----PRINTF-----\n");
 	printf("\na = %d\nb = %d\n", a, b);

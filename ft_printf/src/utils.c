@@ -69,6 +69,7 @@ static	void	check_precision(char **descriptor, t_flag *flag)
 	else if (**descriptor == '.')
 	{
 		flag->has_dot = 1;
+		(*descriptor)++;
 		flag->dot_width = 0;
 		while (ft_isdigit(**descriptor))
 		{
